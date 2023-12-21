@@ -1,0 +1,50 @@
+# To review and clean up local directories.  Just want to get something uploaded to Github #
+
+##### Day 1 #####
+
+# Remove non-CSharp Files #
+day1/c/*
+
+# Remove dotnet project files #
+day1/c_sharp/bin/*
+day1/c_sharp/obj/*
+day1/c_sharp/c_sharp.sln
+day1/c_sharp/c_sharp.csproj
+
+# Ugly file structure - To refactor in the future #
+day1/input
+day1/c_sharp/nope
+
+
+##### Day 2 #####
+
+# Remove non-CSharp Files #
+day2/c/*
+
+# Remove dotnet project files #
+day2/c_sharp/bin/*
+day2/c_sharp/obj/*
+day2/c_sharp/c_sharp.sln
+day2/c_sharp/c_sharp.csproj
+
+# Ugly file structure #
+day2/c_sharp/scratch
+day2/c_sharp/AttemptToRefactor.txt
+
+
+
+##### Day 3 #####
+
+# Remove non-CSharp Files #
+day3/c/*
+
+# Remove dotnet project files #
+day3/c_sharp/bin/*
+day3/c_sharp/obj/*
+day3/c_sharp/c_sharp.sln
+day3/c_sharp/c_sharp.csproj
+
+# Ugly file structure #
+day3/c_sharp/MissionAccomplished/*
+day3/c_sharp/ProgramBackup.txt
+day3/c_sharp/temp
