@@ -23,7 +23,7 @@ namespace AOC
             // For tracking
             // List<string> cardData = new List<string>();
 
-            // WES: Try\Catch against the entire code block is problematic isn't it?  
+            // Try\Catch against the entire code block is problematic isn't it?  
             // Especially when I want to only try\catch the StreamReader
             // Day5, maybe using StreamReader reader = new StreamReader(...); <-- try\catch only this
             try {
