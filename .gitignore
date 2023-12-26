@@ -48,3 +48,11 @@ day3/c_sharp/c_sharp.csproj
 day3/c_sharp/MissionAccomplished/*
 day3/c_sharp/ProgramBackup.txt
 day3/c_sharp/temp
+
+
+##### Day 4 #####
+# Remove dotnet project files #
+day4/c_sharp/bin/*
+day4/c_sharp/obj/*
+day4/c_sharp/c_sharp.sln
+day4/c_sharp/c_sharp.csproj
