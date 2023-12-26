@@ -1,0 +1,5 @@
+# Ignore project files #
+./bin/*
+./obj/*
+./c_sharp.csproj
+./c_sharp.sln
