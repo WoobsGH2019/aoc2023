@@ -16,12 +16,20 @@ namespace AOC
             string inputData;
             string? line = System.String.Empty;
             string[] splitStrings;
-            int sumOfPoints = 0, startingWinDigits, endingWinDigits, calcPoints;
+            int sumOfPoints = 0, currentPosition = 0, startingWinDigits, endingWinDigits, calcPoints, MAXSIZE;
             List<int> winningNumbers = new List<int>();
             List<int> drawNumbers = new List<int>();
 
-            // For tracking
-            // List<string> cardData = new List<string>();
+            static void WinningScratches(ref int[] argScratches, int argCurrentPosition, int argWinningCount)
+            {
+                int valueToAdd = argScratches[argCurrentPosition];
+
+                for(int count = 1; count <= argWinningCount; count++)
+                {
+                    // Console.WriteLine($"Doubling at pos {argCurrentPosition+count} with value {argScratches[argCurrentPosition+count]}.");
+                    argScratches[argCurrentPosition + count] += valueToAdd;                                        
+                }
+            }
 
             // Try\Catch against the entire code block is problematic isn't it?  
             // Especially when I want to only try\catch the StreamReader
@@ -36,35 +44,39 @@ namespace AOC
                     inputData = args[0];
                 }
 
+
+                MAXSIZE = File.ReadLines(inputData).Count();
+                int[] scratchCards = new int[MAXSIZE];
+
+                for (int index = 0; index < scratchCards.Length; scratchCards[index++] = 1);
+                // Console.WriteLine($"scratchCard after initialization");
+
                 using (StreamReader reader = new StreamReader(inputData))
                 {
                     while (line != null)
                     {
                         line = reader.ReadLine();
-                        if(!System.String.IsNullOrWhiteSpace(line))
+                        if (!System.String.IsNullOrWhiteSpace(line))
                         {
-                            // Split on the colon to separate the Card # & numbers.
+                            // Split to retrieve the list of numbers we want. 
                             splitStrings = line.Split(':');
-                            // cardData.Add(splitStrings[0]);
-
                             splitStrings = splitStrings[1].TrimStart().Split('|');
 
-                            foreach(string digits in splitStrings[0].TrimStart().Split(' '))
+                            foreach (string digits in splitStrings[0].TrimStart().Split(' '))
                             {
-                                if(!System.String.IsNullOrWhiteSpace(digits)){
+                                if (!System.String.IsNullOrWhiteSpace(digits))
+                                {
                                     winningNumbers.Add(Int32.Parse(digits));
                                 }
                             }
 
-                            foreach(string digits in splitStrings[1].TrimStart().Split(' '))
+                            foreach (string digits in splitStrings[1].TrimStart().Split(' '))
                             {
-                                if(!System.String.IsNullOrWhiteSpace(digits)) {
+                                if (!System.String.IsNullOrWhiteSpace(digits))
+                                {
                                     drawNumbers.Add(Int32.Parse(digits));
                                 }
                             }
-
-                            // winningNumbers.Sort();
-                            // drawNumbers.Sort();
 
                             IEnumerable<int> exceptions = winningNumbers.Except(drawNumbers);
 
@@ -74,10 +86,8 @@ namespace AOC
 
                             // Console.WriteLine($"Staring Digits({startingWinDigits}) - Ending Digits({endingWinDigits}) = {calcPoints}");
 
-                            switch(calcPoints) 
+                            switch (calcPoints)
                             {
-                                // case 0:
-                                    // break;
                                 case 1:
                                     sumOfPoints += 1;
                                     break;
@@ -124,18 +134,22 @@ namespace AOC
 
                             // Console.WriteLine($"Win Count: {startingWinDigits}");
                             // Console.WriteLine($"Ending Count: {endingWinDigits}");
+                            WinningScratches(ref scratchCards, currentPosition, calcPoints);
 
                             winningNumbers.Clear();
                             drawNumbers.Clear();
+                            currentPosition++;
 
-                        }
-                        else
-                        {
-                            // Console.WriteLine("Reached EOF!");
                         }
                     }
 
-                    Console.WriteLine($"Sum of the total points: {sumOfPoints}");
+                    // foreach(int s in scratchCards)
+                    // {
+                    //     Console.WriteLine($"{s}.");
+                    // }
+
+                    Console.WriteLine($"Part 1 - Sum of the total points: {sumOfPoints}");
+                    Console.WriteLine($"Part 2 - Sum of scratchcards: {scratchCards.Sum()}");
 
                     // TODO: Check using statement and reader.Close() best practice
                     // I think in this iteration, we don't need the Close as it "closes" once it leaves the using { }
