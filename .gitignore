@@ -60,3 +60,9 @@ day4/c_sharp/c_sharp.csproj
 
 # Ugly file structure #
 day4/c_sharp/MissionAccomplished/*
+
+###### Day 5 #####
+day5/c_sharp/bin/*
+day5/c_sharp/obj/*
+day5/c_sharp/c_sharp.sln
+day5/c_sharp/c_sharp.csproj
