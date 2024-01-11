@@ -49,7 +49,7 @@ namespace AOC
       Int64 result;
       Int64 ceiling = source + range;
 
-      if(argValueToCheck >= source && argValueToCheck <= ceiling)
+      if(argValueToCheck >= source && argValueToCheck < ceiling)
       {
         result = (destination - source) + argValueToCheck;
         //Console.WriteLine($"Result: {result}.");

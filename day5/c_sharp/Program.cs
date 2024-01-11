@@ -7,8 +7,7 @@ namespace AOC
   {
     static void Main(string[] args)
     {
-      Int64 tempDestination;
-      Int64 minSoilDestination, minFertilizerDestination, minWaterDestination, minLightDestination, minTemperatureDestination, minHumidityDestination, minLocationDestination;
+      Int64 tempDestination, minSoilDestination, minFertilizerDestination, minWaterDestination, minLightDestination, minTemperatureDestination, minHumidityDestination, minLocationDestination;
       int blockCount = 0, blockEntryCount = 0;
       string path, seedValues;
       string? line = String.Empty;
@@ -95,7 +94,6 @@ namespace AOC
                 case 7:
                   locationMap[blockEntryCount].SaveData(line);
                   blockEntryCount++;
-                  // Console.WriteLine($"Case 7: With line {line} with blockCount {blockCount} and blockEntryCount {blockEntryCount}.");
                   break;
 
               }
@@ -123,11 +121,6 @@ namespace AOC
             if(tempDestination >= 0 && minSoilDestination == -1) {
               minSoilDestination = tempDestination;
             }
-
-            // Need to find the smallest destination
-            if(tempDestination < minSoilDestination && tempDestination != -1) {
-              // minSoilDestination = tempDestination;
-            }
           }
         }
 
@@ -137,7 +130,9 @@ namespace AOC
         }
 
         Console.Write($"soil {minSoilDestination}, ");
-
+        // Rinse and Repeat... Should function this out, we're repeating the same steps.
+        
+        
         minFertilizerDestination = -1;
         foreach(DataMap fertilizer in fertilizerMap)
         {
@@ -146,10 +141,6 @@ namespace AOC
 
             if(tempDestination >= 0 && minFertilizerDestination == -1) {
               minFertilizerDestination = tempDestination;
-            }
-
-            if(tempDestination < minFertilizerDestination && tempDestination != -1) {
-              // minFertilizerDestination = tempDestination;
             }
           }
         }
@@ -170,10 +161,6 @@ namespace AOC
             if(tempDestination >= 0 && minWaterDestination == -1) {
               minWaterDestination = tempDestination;
             }
-
-            if(tempDestination < minWaterDestination && tempDestination != -1) {
-              // minWaterDestination = tempDestination;
-            }
           }
         }
         
@@ -191,10 +178,6 @@ namespace AOC
 
             if(tempDestination >= 0 && minLightDestination == -1) {
               minWaterDestination = tempDestination;
-            }
-
-            if(tempDestination < minLightDestination && tempDestination != -1) {
-              // minWaterDestination = tempDestination;
             }
           }
         }
@@ -214,10 +197,6 @@ namespace AOC
             if(tempDestination >= 0 && minTemperatureDestination == -1) {
               minTemperatureDestination = tempDestination;
             }
-
-            if(tempDestination < minTemperatureDestination && tempDestination != -1) {
-              // minTemperatureDestination = tempDestination;
-            }
           }
         }
         
@@ -235,10 +214,6 @@ namespace AOC
 
             if(tempDestination >= 0 && minHumidityDestination == -1) {
               minHumidityDestination = tempDestination;
-            }
-
-            if(tempDestination < minHumidityDestination && tempDestination != -1) {
-              // minHumidityDestination = tempDestination;
             }
           }
         }
@@ -258,10 +233,6 @@ namespace AOC
             if(tempDestination >= 0 && minLocationDestination == -1) {
               minLocationDestination = tempDestination;
             }
-
-            if(tempDestination < minLocationDestination && tempDestination != -1) {
-              // minLocationDestination = tempDestination;
-            }
           }
         }
         if(minLocationDestination == -1) {
@@ -274,12 +245,6 @@ namespace AOC
       }
 
       Console.WriteLine($"Minimum location: {locationList.Min()}.");
-      locationList.Sort();
-      foreach(Int64 i in locationList)
-      {
-        Console.WriteLine($"{i}");
-      }
-      // Console.WriteLine($"Sorted Locations: {locationList}");
     }
   }
 }
