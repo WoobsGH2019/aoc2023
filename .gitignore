@@ -4,6 +4,7 @@
 
 # Remove non-CSharp Files #
 day1/c/*
+day1/input/*
 
 # Remove dotnet project files #
 day1/c_sharp/bin/*
@@ -20,6 +21,7 @@ day1/c_sharp/nope
 
 # Remove non-CSharp Files #
 day2/c/*
+day2/input/*
 
 # Remove dotnet project files #
 day2/c_sharp/bin/*
@@ -37,6 +39,7 @@ day2/c_sharp/AttemptToRefactor.txt
 
 # Remove non-CSharp Files #
 day3/c/*
+day3/input/*
 
 # Remove dotnet project files #
 day3/c_sharp/bin/*
@@ -52,6 +55,9 @@ day3/c_sharp/temp
 
 ##### Day 4 #####
 
+# Remove non-CSharp Files #
+day4/input/*
+
 # Remove dotnet project files #
 day4/c_sharp/bin/*
 day4/c_sharp/obj/*
@@ -62,6 +68,12 @@ day4/c_sharp/c_sharp.csproj
 day4/c_sharp/MissionAccomplished/*
 
 ###### Day 5 #####
+
+# Remove non-CSharp Files #
+day5/input/*
+day5/c_sharp/temp.txt
+
+# Remove dotnet project files #
 day5/c_sharp/bin/*
 day5/c_sharp/obj/*
 day5/c_sharp/c_sharp.sln
