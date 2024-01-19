@@ -15,15 +15,13 @@ namespace AOC
       List<Int64> locationList = new List<Int64>();
 
       // For future me.... this is disgusting.  Maybe linked list in the class to dynamically handle the various elements
-      DataMap[] soilMap = new DataMap[23].Select(sm => new DataMap()).ToArray();
-      DataMap[] fertilizerMap = new DataMap[40].Select(fm => new DataMap()).ToArray();
-      DataMap[] waterMap = new DataMap[14].Select(wm => new DataMap()).ToArray();
-      DataMap[] lightMap = new DataMap[46].Select(lm => new DataMap()).ToArray();
-      DataMap[] tempMap = new DataMap[35].Select(tm => new DataMap()).ToArray();
-      DataMap[] humidityMap = new DataMap[28].Select(hm => new DataMap()).ToArray();
-      DataMap[] locationMap = new DataMap[42].Select(lm => new DataMap()).ToArray();
-
-
+      DataMap[] soilMap = new DataMap[24].Select(sm => new DataMap()).ToArray();
+      DataMap[] fertilizerMap = new DataMap[41].Select(fm => new DataMap()).ToArray();
+      DataMap[] waterMap = new DataMap[15].Select(wm => new DataMap()).ToArray();
+      DataMap[] lightMap = new DataMap[47].Select(lm => new DataMap()).ToArray();
+      DataMap[] tempMap = new DataMap[36].Select(tm => new DataMap()).ToArray();
+      DataMap[] humidityMap = new DataMap[29].Select(hm => new DataMap()).ToArray();
+      DataMap[] locationMap = new DataMap[43].Select(lm => new DataMap()).ToArray();
 
       // File handling
       try
@@ -118,8 +116,16 @@ namespace AOC
             tempDestination = soil.CheckSource(seed);
 
             // Gets us out of minimum soil destination of -1
-            if(tempDestination >= 0 && minSoilDestination == -1) {
-              minSoilDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minSoilDestination == -1) 
+              {
+                minSoilDestination = tempDestination;
+              }
+              else if(tempDestination < minSoilDestination && minSoilDestination != -1)
+              {
+                minSoilDestination = tempDestination;
+              }
             }
           }
         }
@@ -139,8 +145,16 @@ namespace AOC
           if(fertilizer.CheckRange()) {
             tempDestination = fertilizer.CheckSource(minSoilDestination);
 
-            if(tempDestination >= 0 && minFertilizerDestination == -1) {
-              minFertilizerDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minFertilizerDestination == -1) 
+              {
+                minFertilizerDestination = tempDestination;
+              }
+              else if(tempDestination < minFertilizerDestination && minFertilizerDestination != -1)
+              {
+                minFertilizerDestination = tempDestination;
+              }
             }
           }
         }
@@ -158,8 +172,16 @@ namespace AOC
           if(water.CheckRange()) {
             tempDestination = water.CheckSource(minFertilizerDestination);
 
-            if(tempDestination >= 0 && minWaterDestination == -1) {
-              minWaterDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minWaterDestination == -1) 
+              {
+                minWaterDestination = tempDestination;
+              }
+              else if(tempDestination < minFertilizerDestination && minWaterDestination != -1)
+              {
+                minWaterDestination = tempDestination;
+              }
             }
           }
         }
@@ -176,8 +198,16 @@ namespace AOC
           if(light.CheckRange()) {
             tempDestination = light.CheckSource(minWaterDestination);
 
-            if(tempDestination >= 0 && minLightDestination == -1) {
-              minWaterDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minLightDestination == -1) 
+              {
+                minLightDestination = tempDestination;
+              }
+              else if(tempDestination < minLightDestination && minLightDestination != -1)
+              {
+                minLightDestination = tempDestination;
+              }
             }
           }
         }
@@ -194,8 +224,16 @@ namespace AOC
           if(temp.CheckRange()) {
             tempDestination = temp.CheckSource(minLightDestination);
 
-            if(tempDestination >= 0 && minTemperatureDestination == -1) {
-              minTemperatureDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minTemperatureDestination == -1) 
+              {
+                minTemperatureDestination = tempDestination;
+              }
+              else if(tempDestination < minTemperatureDestination && minTemperatureDestination != -1)
+              {
+                minTemperatureDestination = tempDestination;
+              }
             }
           }
         }
@@ -212,8 +250,16 @@ namespace AOC
           if(humidity.CheckRange()) {
             tempDestination = humidity.CheckSource(minTemperatureDestination);
 
-            if(tempDestination >= 0 && minHumidityDestination == -1) {
-              minHumidityDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minHumidityDestination == -1) 
+              {
+                minHumidityDestination = tempDestination;
+              }
+              else if(tempDestination < minHumidityDestination && minHumidityDestination != -1)
+              {
+                minHumidityDestination = tempDestination;
+              }
             }
           }
         }
@@ -230,11 +276,20 @@ namespace AOC
           if(location.CheckRange()) {
             tempDestination = location.CheckSource(minHumidityDestination);
 
-            if(tempDestination >= 0 && minLocationDestination == -1) {
-              minLocationDestination = tempDestination;
+            if(tempDestination >= 0)
+            {
+              if(minLocationDestination == -1) 
+              {
+                minLocationDestination = tempDestination;
+              }
+              else if(tempDestination < minLocationDestination && minLocationDestination != -1)
+              {
+                minLocationDestination = tempDestination;
+              }
             }
           }
         }
+
         if(minLocationDestination == -1) {
           minLocationDestination = minHumidityDestination;
         }
